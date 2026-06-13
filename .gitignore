@@ -1,0 +1,6 @@
+build/
+build-*/
+.cache/
+*.csv.out
+compile_commands.json
+
