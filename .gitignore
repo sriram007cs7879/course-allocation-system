@@ -1,6 +1,2 @@
-build/
-build-*/
-.cache/
-*.csv.out
-compile_commands.json
-
+course_allocator
+allocations.csv

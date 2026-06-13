@@ -11,19 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-
       - name: Build
-        run: cmake --build build --parallel
+        run: g++ -std=c++17 -O2 -Wall -Wextra -Werror main.cpp -o course_allocator
 
       - name: Test
-        run: ctest --test-dir build --output-on-failure
+        run: ./course_allocator --self-test
 
       - name: Run sample allocation
         run: |
-          ./build/course_allocator \
+          ./course_allocator \
             --students data/students.csv \
             --courses data/courses.csv \
-            --output build/allocations.csv
-
+            --output allocations.csv
